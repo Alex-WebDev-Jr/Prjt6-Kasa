@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Index from './Index.jsx';
-import reportWebVitals from './reportWebVitals';
+import Accueil from './components/Accueil';
+import About from './components/About';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Index />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-reportWebVitals();
