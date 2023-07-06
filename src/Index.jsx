@@ -1,21 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Accueil from './components/Accueil';
 import About from './components/About';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import NotFound from './components/NotFound';
+import Logement from './components/Logement';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Accueil />} /> 
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
-    </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+function Index() {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<Accueil />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/logement/:id" element={<Logement />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    );
+  }
+  
+  export default Index;
