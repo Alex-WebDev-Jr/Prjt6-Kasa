@@ -6,18 +6,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+    margin: 0;
   
-  .footer-logo {
-    width: 100px; /* Ajustez la taille du logo selon vos besoins */
-    height: auto; /* Ajustez la taille du logo selon vos besoins */
-  }
+    .footer-logo {
+      width: 100px;
+      height: auto;
+    }
   
-  .footer-text {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 24px;
-    color: #ffffff;
-    text-align: center;
+    .footer-text {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      color: #ffffff;
+      text-align: center;
+    }
   }
   

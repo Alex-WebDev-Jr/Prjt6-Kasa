@@ -1,28 +1,27 @@
 .logo {
-    width: 210.32px;
-    height: 68px;
+  width: 210.32px;
+  height: 68px;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+
+  a {
+    color: #E00000;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 20px;
+    text-decoration: none;
   }
-  
-  nav {
-    display: flex;
-    justify-content: flex-end;
-  
-    a {
-      color: #FF6060;
-      font-family: Montserrat;
-      font-size: 24px;
-      font-weight: 500;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    max-width: 1240px;
-    margin: 0 auto;
-  }
-  
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
