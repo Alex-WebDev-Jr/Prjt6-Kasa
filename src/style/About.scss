@@ -56,6 +56,8 @@ img {
 .collapse-content {
   padding: 20px;
   background-color: #F6F6F6;
+  overflow: hidden;
+  transition:  0.5 ease;
 
   p {
     font-family: 'Montserrat', sans-serif;
@@ -64,4 +66,10 @@ img {
     color: #FF6060;
     margin: 0;
   }
+
+  
+}
+
+.collapse-content.open {
+  max-height: 200px;
 }

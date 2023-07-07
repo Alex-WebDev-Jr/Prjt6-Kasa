@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Index from './Index.jsx';
 
-ReactDOM.render(
+const rootElement = document.getElementById('root');
+createRoot(rootElement).render(
   <React.StrictMode>
     <Index />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
