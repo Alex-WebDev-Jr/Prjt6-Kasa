@@ -6,11 +6,11 @@ import '../style/Header.scss';
 
 function Header() {
   return (
-    <header>
-      <div className="logo">
+    <header className="header-header">
+      <div className="header-logo">
         <img src={logo} alt="Logo Kasa" />
       </div>
-      <nav>
+      <nav className="header-navigation">
         <Link to="/">Accueil</Link>
         <Link to="/about">A Propos</Link>
       </nav>

@@ -4,10 +4,12 @@ import Accueil from './components/Accueil';
 import About from './components/About';
 import NotFound from './components/NotFound';
 import Logement from './components/Logement';
+import './style/Global.scss';
 
 
 function Index() {
-    return (
+  return (
+    <div>
       <Router>
         <Routes>
           <Route path="/" element={<Accueil />} />
@@ -16,7 +18,8 @@ function Index() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
-    );
-  }
+    </div>
+  );
+}
   
   export default Index;

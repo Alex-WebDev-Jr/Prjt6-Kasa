@@ -1,11 +1,12 @@
-.logo {
+.header-logo {
   width: 210.32px;
   height: 68px;
 }
 
-nav {
+.header-navigation {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 
   a {
     color: #E00000;
@@ -17,7 +18,7 @@ nav {
   }
 }
 
-header {
+.header-header {
   display: flex;
   justify-content: space-between;
   align-items: center;

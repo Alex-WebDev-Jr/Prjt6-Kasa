@@ -1,45 +1,59 @@
-img {
-  display: block; 
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.collapse {
-  max-width: 1023px;
-  margin: 25px auto;
-}
 
-.collapse {
-  width: 100%;
-  border-radius: 5px;
-  background-color: #F6F6F6;
-  margin-bottom: 20px;
-  overflow: hidden;
-
-  &.closed {
-    box-shadow: none;
-    transition: box-shadow 0.3s ease;
-
-    &:hover {
-      box-shadow: 0 3px 12px 3px rgba(0, 0, 0, 0.3);
-    }
+.img-about {
+    display: block; /* Permet de centrer horizontalement */
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
   }
-}
 
-.collapse-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #FF6060;
+ 
+  .first-collapse {
+    margin-top: 4em;
+  }
+  
 
-  h3 {
+  .collapse {
+    max-width: 1023px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    
+  }
+
+  .collapse-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #FF6060;
+    border-radius: 5px;
+    
+  }
+  
+  .collapse-title h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
     margin: 0;
   }
+
+  .collapse-content {
+    padding: 20px;
+    background-color: #F6F6F6;
+    border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.collapse-content p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FF6060;
+  
+  
 }
 
 .collapse-arrow {
@@ -47,29 +61,23 @@ img {
   transition: transform 0.5s ease;
 }
 
-.collapse.open {
-  .collapse-arrow {
-    transform: rotate(-180deg);
-  }
+.collapse.open .collapse-arrow {
+  transform: rotate(-180deg);
 }
 
-.collapse-content {
-  padding: 20px;
-  background-color: #F6F6F6;
-  overflow: hidden;
-  transition:  0.5 ease;
 
-  p {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    color: #FF6060;
-    margin: 0;
-  }
-
+/* 
+.index {
+  min-height: 100vh;
+  min-height: calc(100% - 600px );
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
   
 }
 
-.collapse-content.open {
-  max-height: 200px;
+.Footer {
+  margin-top: 100%;
 }
+
+*/

@@ -14,6 +14,7 @@ function About() {
     { id: 4, title: 'Sécurité', content: 'La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l\'hôte qu\'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.', isOpen: false },
   ]);
 
+
   const handleCollapseToggle = (id) => {
     setCollapses((prevCollapses) =>
       prevCollapses.map((collapse) =>
@@ -24,13 +25,18 @@ function About() {
 
   return (
     <div>
+      <div>
+
       <Header />
       <main>
-        <img src={aboutImage} alt="À Propos" />
+        <img className='img-about' src={aboutImage} alt="À Propos" />
 
-        {collapses.map((collapse) => (
-          <div className={`collapse ${collapse.isOpen ? 'open' : 'closed'}`} key={collapse.id}>
-            <div className="collapse-header" onClick={() => handleCollapseToggle(collapse.id)}>
+        {collapses.map((collapse, index) => (
+          <div
+            className={`collapse ${index === 0 ? 'first-collapse' : ''} ${collapse.isOpen ? 'open' : ''}`}
+            key={collapse.id}
+          >
+            <div className="collapse-title" onClick={() => handleCollapseToggle(collapse.id)}>
               <h3>{collapse.title}</h3>
               <div className="collapse-arrow">
                 <FontAwesomeIcon icon={faChevronUp} />
@@ -44,7 +50,15 @@ function About() {
           </div>
         ))}
       </main>
-      <Footer />
+      
+      
+    <Footer />
+  
+
+
+      </div>
+      
+      
     </div>
   );
 }
