@@ -1,41 +1,28 @@
+// Accueil.jsx
+
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from './Header';
+import Banner from './Banner';
+import Gallery from './Gallery';
 import Footer from './Footer';
 import logementData from '../data/logements.json';
 import '../style/Accueil.scss';
-
-
+import acceuilImage from '../assets/accueil.png';
 
 function Accueil() {
   return (
     <div>
+      {/* En-tête */}
       <Header />
       <main>
-      <div className="banner">
-  <div className="text-container">
-    <h2>Chez vous, partout et ailleurs</h2>
-  </div>
-</div>
-
-
-        <div className="gallery">
-        {logementData.map((logement) => (
-
-<Link to={`/logement/${logement.id}`} key={logement.id} className="gallery-item">
-  <div className="gallery-item floating-image">
-    <h3>{logement.title}</h3>
-    <img src={logement.cover} alt={logement.title}/>
-  </div>
-</Link>
-
-
-
-
-
-        ))}
-      </div>
+        {/* Bannière avec titre spécifique */}
+        <div className="banner-accueil">
+          <Banner image={acceuilImage} title="Chez vous, partout et ailleurs" altText="Bannière de la page d'accueil" />
+        </div>
+        {/* Galerie */}
+        <Gallery logements={logementData} />
       </main>
+      {/* Pied de page */}
       <Footer />
     </div>
   );

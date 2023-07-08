@@ -1,0 +1,70 @@
+// Collapse.scss
+
+
+
+.collapse {
+  max-width: 1023px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #B30000;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #FF6060;
+    }
+
+    h3 {
+      font-weight: 500;
+      font-size: 18px;
+      color: #FFFFFF;
+      margin: 0;
+    }
+  }
+
+
+
+  &-arrow { // flèche
+    color: white;
+    transition: transform 0.5s ease;
+  }
+
+  &.open &-arrow {
+    transform: rotate(-180deg);
+  }
+
+  &-content {
+    padding: 15px 20px;
+    background-color: #F6F6F6;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    p {
+      font-size: 18px;
+      color: #FF6060;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &.open &-content .animated-text {
+    animation: slide-up 0.3s ease-in-out forwards; // ease fonction de transition exprime l'évolution de l'animation dans le temps ( accélération début, décélération à la fin)
+    opacity: 0;
+  }
+}
