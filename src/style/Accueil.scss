@@ -15,7 +15,6 @@
     overflow: hidden;
   
     h2 {
-      font-family: 'Montserrat', sans-serif;
       font-weight: 500;
       font-size: 48px;
       color: #FFFF;
@@ -42,9 +41,48 @@
       border-radius: 10px;
       overflow: hidden;
       position: relative;
+
+
+
+
+
+
+
+      .floating-image {
+        transition: transform 0.3s ease;
+      }
+      
+      .floating-image:hover {
+        animation: floating-animation 2s infinite;
+      }
+      
+      @keyframes floating-animation {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+      
+      
+     
+      
+      
+      
+      
+      
+
+
+
+
+
   
       h3 {
-        font-family: Montserrat;
         font-weight: 500;
         font-size: 18px;
         color: #FFFFFF;

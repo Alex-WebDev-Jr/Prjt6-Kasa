@@ -24,42 +24,36 @@ function About() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="container">
+   <div className="header">   
+  <Header />
+  </div>
+  <main className="index">
+    <img className="img-about" src={aboutImage} alt="À Propos" />
 
-      <Header />
-      <main>
-        <img className='img-about' src={aboutImage} alt="À Propos" />
-
-        {collapses.map((collapse, index) => (
-          <div
-            className={`collapse ${index === 0 ? 'first-collapse' : ''} ${collapse.isOpen ? 'open' : ''}`}
-            key={collapse.id}
-          >
-            <div className="collapse-title" onClick={() => handleCollapseToggle(collapse.id)}>
-              <h3>{collapse.title}</h3>
-              <div className="collapse-arrow">
-                <FontAwesomeIcon icon={faChevronUp} />
-              </div>
-            </div>
-            {collapse.isOpen && (
-              <div className="collapse-content">
-                <p>{collapse.content}</p>
-              </div>
-            )}
+    {collapses.map((collapse, index) => (
+      <div
+        className={`collapse ${index === 0 ? 'first-collapse' : ''} ${collapse.isOpen ? 'open' : ''}`}
+        key={collapse.id}
+      >
+        <div className="collapse-title" onClick={() => handleCollapseToggle(collapse.id)}>
+          <h3>{collapse.title}</h3>
+          <div className="collapse-arrow">
+            <FontAwesomeIcon icon={faChevronUp} />
           </div>
-        ))}
-      </main>
-      
-      
-    <Footer />
-  
-
-
+        </div>
+        {collapse.isOpen && (
+          <div className="collapse-content">
+          <p className="animated-text">{collapse.content}</p>
+        </div>
+        
+        )}
       </div>
-      
-      
-    </div>
+    ))}
+  </main>
+  <Footer />
+</div>
+
   );
 }
 

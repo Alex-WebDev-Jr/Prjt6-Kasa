@@ -1,18 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../assets/LOGO.png';
 import '../style/Header.scss';
 
 
 function Header() {
+  const pathname = window.location.pathname;
+
   return (
     <header className="header-header">
       <div className="header-logo">
         <img src={logo} alt="Logo Kasa" />
       </div>
       <nav className="header-navigation">
-        <Link to="/">Accueil</Link>
-        <Link to="/about">A Propos</Link>
+        <a href="/" className={pathname === '/' ? 'active' : ''}>
+          Accueil
+        </a>
+        <a href="/about" className={pathname === '/about' ? 'active' : ''}>
+          A Propos
+        </a>
       </nav>
     </header>
   );

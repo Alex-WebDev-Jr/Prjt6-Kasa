@@ -1,6 +1,10 @@
-// Réinitialisation des marges et des paddings
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 html, body {
+  // Réinitialisation des marges et des paddings
   margin: 0;
   padding: 0;
+ 
+  font-family: Montserrat; /* Appliquer la police Montserrat à l'ensemble du site */
 }
-

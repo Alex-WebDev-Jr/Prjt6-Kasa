@@ -21,13 +21,18 @@ function Accueil() {
 
         <div className="gallery">
         {logementData.map((logement) => (
-          <Link to={`/logement/${logement.id}`} key={logement.id}>
-            <div className="gallery-item">
-              
-              <h3>{logement.title}</h3>
-              <img src={logement.cover} alt={logement.title} />
-            </div>
-          </Link>
+
+<Link to={`/logement/${logement.id}`} key={logement.id} className="gallery-item">
+  <div className="gallery-item floating-image">
+    <h3>{logement.title}</h3>
+    <img src={logement.cover} alt={logement.title}/>
+  </div>
+</Link>
+
+
+
+
+
         ))}
       </div>
       </main>
