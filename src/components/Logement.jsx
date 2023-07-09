@@ -57,6 +57,12 @@ function Logement() {
     </div>
   </div>
 
+
+
+{ /* Information Logement */}
+
+<div className='logement-desktop'>
+
   <div className="title-details-container">
   {/* Titre du logement */}
   <h2>{logement.title}</h2>
@@ -66,7 +72,7 @@ function Logement() {
     <span>{logement.host.name}</span>
     <img src={logement.host.picture} alt="Owner" />
   </div>
-</div>
+  </div>
 
 
   {/* Emplacement du logement */}
@@ -86,10 +92,62 @@ function Logement() {
   {Array.from(Array(5), (e, i) => (
     <FontAwesomeIcon key={i} icon={faStar} className={i < logement.rating ? '' : 'inactive'} />
   ))}
+      </div>
+
+  </div>
+
+  </div>
+
+  { /* Information MOBILE Logement */}
+
+  <div className='logement-mobile'>
+  {/* Titre du logement */}
+  <h2>{logement.title}</h2>
+
+ {/* Emplacement du logement */}
+ <div className="location">{logement.location}</div>
+ 
+{/* Informations supplémentaires */}
+
+    {/* Tags */}
+
+    <ul className="tag-mobile">
+  {logement.tags.map((tag, index) => (
+    <li key={index}>{tag}</li>
+  ))}
+</ul>
+
+
+
+  
+
+<div className="rate-name-mobile">
+  {/* Évaluation */}
+  <div className="rating">
+    {Array.from(Array(5), (e, i) => (
+      <FontAwesomeIcon
+        key={i}
+        icon={faStar}
+        className={i < logement.rating ? '' : 'inactive'}
+      />
+    ))}
+  </div>
+
+  {/* Détails du propriétaire */}
+  <div className="owner-details">
+    <span>{logement.host.name}</span>
+    <img src={logement.host.picture} alt="Owner" />
+  </div>
 </div>
 
 
-  </div>
+</div>
+
+
+
+
+  
+
   <div className="custom-collapses-container">
   {/* Description du logement */}
   <div className="custom-collapse">

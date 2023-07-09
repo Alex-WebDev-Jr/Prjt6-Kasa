@@ -1,11 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Accueil from './components/Accueil';
 import About from './components/About';
-import NotFound from './components/NotFound';
+import NotFoundPage from './components/NotFound'; // Renommer le composant importé
 import Logement from './components/Logement';
 import './style/Global.scss';
 
+function NotFound() {
+  return <Navigate to="/not-found" replace />;
+}
 
 function Index() {
   return (
@@ -15,11 +18,12 @@ function Index() {
           <Route path="/" element={<Accueil />} />
           <Route path="/about" element={<About />} />
           <Route path="/logement/:id" element={<Logement />} />
+          <Route path="/not-found" element={<NotFoundPage />} /> 
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </div>
   );
 }
-  
-  export default Index;
+
+export default Index;

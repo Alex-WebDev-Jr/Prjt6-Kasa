@@ -41,3 +41,49 @@
     z-index: 0;
   }
 }
+
+.banner-accueil-mobile {
+  display: none;
+}
+
+/* Version mobile */
+@media (max-width: 480px) {
+  /* Styles spécifiques à la version mobile */
+  
+  .banner.accueil {
+    height: 111px;
+    border-radius: 10px;
+    }
+
+  .banner .banner-content {
+  display: flex;
+  justify-content: flex-start;
+  }
+
+  .banner .banner-content h2 {
+    font-size: 24px;
+    margin-left: 20px;
+    }
+  
+  .banner-accueil {
+    display: none;
+  }
+
+  .banner-accueil-mobile {
+    display: block;
+  }
+   
+
+  .banner.about {
+    height: 223px;
+    border-radius: 10px;
+    }
+
+}
+
+
+
+
+
+
+

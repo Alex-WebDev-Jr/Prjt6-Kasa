@@ -4,9 +4,17 @@
 html, body {
   // Réinitialisation des marges et des paddings
   height: 100%;
-  margin: 0;
   padding: 0;
-  background-color: white;
+  margin: 0;
+
+  background-color: rgb(255, 255, 255);
   font-family: Montserrat; /* Appliquer la police Montserrat à l'ensemble du site */
 }
 
+/* Media query pour les écrans ayant une largeur maximale de 480 pixels */
+@media (max-width: 480px) {
+  main {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}

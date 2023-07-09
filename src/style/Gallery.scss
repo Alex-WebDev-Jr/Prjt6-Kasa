@@ -60,3 +60,29 @@
     height: 100%;
     object-fit: cover;
   }
+
+  /* Version mobile */
+@media (max-width: 480px) {
+  /* Styles spécifiques à la version mobile */
+  
+  .gallery {
+    gap: 25px;
+    background-color: #ffffff;
+    padding: 0px;
+    
+  }
+  .gallery-item {
+    width: 340px;
+    height: 255px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    
+    }
+  
+
+
+
+
+
+}

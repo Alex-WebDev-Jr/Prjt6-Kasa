@@ -1,15 +1,17 @@
-
-
-
-
 .collapse-wrapper {
   margin: 90px;
 }
 
 
+/* Version mobile */
+@media (max-width: 480px) {
+  /* Styles spécifiques à la version mobile */
+  
+  .collapse-wrapper {
+    margin: 0px;
+  }
 
-
-
+}
 
 
 

@@ -3,9 +3,12 @@
 import React from 'react';
 import '../style/Banner.scss';
 
-function Banner({ title, image, altText }) {
+function Banner({ page, title, image, altText }) {
+  const bannerClass = `banner ${page}`;
+
+
   return (
-    <div className="banner">
+    <div className={bannerClass}>
       <div className="banner-content">
       {title && <h2>{title}</h2>} {/* Utilisation de la prop "title" */}
       </div>
