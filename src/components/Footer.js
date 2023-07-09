@@ -6,7 +6,7 @@ import '../style/Footer.scss';
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer-component">
       {/* Logo */}
       <div className="footer-logo">
         <img src={logo} alt="Logo" />

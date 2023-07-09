@@ -2,15 +2,24 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import Collapse from './Collapse';
 import logementsData from '../data/logements.json';
 
+import nextIcon from '../assets/next.svg';
+import previousIcon from '../assets/previous.svg';
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
+import '../style/Logement.scss';
+
 function Logement() {
-  const { id } = useParams(); // pour récupér l'ID du logement
+  const { id } = useParams();
   const logement = logementsData.find((item) => item.id === id);
   const [currentImage, setCurrentImage] = useState(0);
 
   if (!logement) {
-    // si le logement n'est pas trouvé
     return <div>Nous ne trouvons pas votre logement</div>;
   }
 
@@ -25,50 +34,89 @@ function Logement() {
   return (
     <div>
       <Header />
-      <main>
-        <div className="photo-container">
-        <img src={logement.pictures[currentImage]} alt={`${currentImage + 1}/${logement.pictures.length}`} />
-          <button onClick={previousImage}>&#8592;</button>
-          <span>{`${currentImage + 1}/${logement.pictures.length}`}</span>
-          <button onClick={nextImage}>&#8594;</button>
-        </div>
 
-        <h2>{logement.title}</h2>
 
-        <div className="owner-details">
-          <span>{logement.host.name}</span>
-          <img src={logement.host.picture} alt="Owner" />
-        </div>
+      <main className="logement-container">
+  <div className="photo-container">
+    <div className="carousel">
+      {/* Image du logement */}
+      <img className="carousel-image" src={logement.pictures[currentImage]} alt={currentImage.toString()} />
 
-        <div className="location">{logement.location}</div>
+      {/* Navigation du carrousel */}
+      <div className="carousel-navigation">
+        <button onClick={previousImage} className="carousel-button">
+          <img src={previousIcon} alt="Previous" />
+        </button>
+        <button onClick={nextImage} className="carousel-button">
+          <img src={nextIcon} alt="Next" />
+        </button>
+      </div>
 
-        <div className="information">
-          <ul>
-            {logement.tags.map((tag, index) => (
-              <li key={index}>{tag}</li>
-            ))}
-          </ul>
-          <div className="rating">
-            {/* Afficher les étoiles en fonction de logement.rating */}
-          </div>
-        </div>
-
-        <div className="description">
-          <h3>Description</h3>
-          <p>{logement.description}</p>
-        </div>
-
-        <div className="equipements">
-          <h3>Equipements</h3>
-          <ul>
-            {logement.equipments.map((equipment, index) => (
-              <li key={index}>{equipment}</li>
-            ))}
-          </ul>
-        </div>
-      </main>
-      <Footer />
+      {/* Indicateur du carrousel */}
+      <div className="carousel-indicator">{`${currentImage + 1}/${logement.pictures.length}`}</div>
     </div>
+  </div>
+
+  <div className="title-details-container">
+  {/* Titre du logement */}
+  <h2>{logement.title}</h2>
+
+  {/* Détails du propriétaire */}
+  <div className="owner-details">
+    <span>{logement.host.name}</span>
+    <img src={logement.host.picture} alt="Owner" />
+  </div>
+</div>
+
+
+  {/* Emplacement du logement */}
+  <div className="location">{logement.location}</div>
+
+  {/* Informations supplémentaires */}
+  <div className="information">
+    {/* Tags */}
+    <ul>
+      {logement.tags.map((tag, index) => (
+        <li key={index}>{tag}</li>
+      ))}
+    </ul>
+
+    {/* Évaluation */}
+    <div className="rating">
+  {Array.from(Array(5), (e, i) => (
+    <FontAwesomeIcon key={i} icon={faStar} className={i < logement.rating ? '' : 'inactive'} />
+  ))}
+</div>
+
+
+  </div>
+  <div className="custom-collapses-container">
+  {/* Description du logement */}
+  <div className="custom-collapse">
+    <Collapse title="Description" content={logement.description} />
+  </div>
+
+  {/* Équipements du logement */}
+  <div className="custom-collapse">
+    <Collapse
+      title="Équipements"
+      content={
+        <ul>
+          {logement.equipments.map((equipment, index) => (
+            <li key={index}>{equipment}</li>
+          ))}
+        </ul>
+      }
+    />
+  </div>
+</div>
+
+</main>
+
+
+      <Footer />
+     
+      </div>
   );
 }
 

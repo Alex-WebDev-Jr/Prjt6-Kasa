@@ -10,7 +10,7 @@ function Gallery({ logements }) {
         <Link to={`/logement/${logement.id}`} key={logement.id} className="gallery-item">
           <div className="gallery-item floating-image">
             <h3 className='h3-gallery'>{logement.title}</h3>
-            <img src={logement.cover} alt={logement.title} />
+            <img className="img-gallery" src={logement.cover} alt={logement.title} />
           </div>
         </Link>
       ))}
