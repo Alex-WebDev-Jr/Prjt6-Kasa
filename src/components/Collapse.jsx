@@ -22,7 +22,7 @@ function Collapse({ title, content }) {
       </div>
       {isOpen && (
         <div className="collapse-content">
-          <p className='animated-text'>{content}</p>
+          {content}
         </div>
       )}
     </div>

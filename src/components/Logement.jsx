@@ -8,7 +8,6 @@ import logementsData from '../data/logements.json';
 import nextIcon from '../assets/next.svg';
 import previousIcon from '../assets/previous.svg';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -24,157 +23,139 @@ function Logement() {
   }
 
   const previousImage = () => {
-    setCurrentImage((prevImage) => prevImage === 0 ? logement.pictures.length - 1 : prevImage - 1);
+    setCurrentImage((prevImage) => (prevImage === 0 ? logement.pictures.length - 1 : prevImage - 1));
   };
 
   const nextImage = () => {
     setCurrentImage((prevImage) => (prevImage + 1) % logement.pictures.length);
   };
 
+  const showNavigationButtons = logement.pictures.length > 1;
+
   return (
     <div>
       <Header />
 
-
       <main className="logement-container">
-  <div className="photo-container">
-    <div className="carousel">
-      {/* Image du logement */}
-      <img className="carousel-image" src={logement.pictures[currentImage]} alt={currentImage.toString()} />
+        <div className="photo-container">
+          <div className="carousel">
+            {/* Image du logement */}
+            <img className="carousel-image" src={logement.pictures[currentImage]} alt={currentImage.toString()} />
 
-      {/* Navigation du carrousel */}
-      <div className="carousel-navigation">
-        <button onClick={previousImage} className="carousel-button">
-          <img src={previousIcon} alt="Previous" />
-        </button>
-        <button onClick={nextImage} className="carousel-button">
-          <img src={nextIcon} alt="Next" />
-        </button>
-      </div>
+            {/* Navigation du carrousel */}
+            {showNavigationButtons && (
+              <div className="carousel-navigation">
+                <button onClick={previousImage} className="carousel-button">
+                  <img src={previousIcon} alt="Previous" />
+                </button>
+                <button onClick={nextImage} className="carousel-button">
+                  <img src={nextIcon} alt="Next" />
+                </button>
+              </div>
+            )}
 
-      {/* Indicateur du carrousel */}
-      <div className="carousel-indicator">{`${currentImage + 1}/${logement.pictures.length}`}</div>
-    </div>
-  </div>
+            {/* Indicateur du carrousel */}
+            <div className="carousel-indicator">{`${currentImage + 1}/${logement.pictures.length}`}</div>
+          </div>
+        </div>
 
+        {/* Information Logement */}
+        <div className="logement-desktop">
+          <div className="title-details-container">
+            {/* Titre du logement */}
+            <h2>{logement.title}</h2>
 
+            {/* Détails du propriétaire */}
+            <div className="owner-details">
+              <span>{logement.host.name}</span>
+              <img src={logement.host.picture} alt="Owner" />
+            </div>
+          </div>
 
-{ /* Information Logement */}
+          {/* Emplacement du logement */}
+          <div className="location">{logement.location}</div>
 
-<div className='logement-desktop'>
+          {/* Informations supplémentaires */}
+          <div className="information">
+           {/* Tags */}
+  {logement.tags.length > 0 && (
+    <>
+      <ul>
+        {logement.tags.map((tag, index) => (
+          <li key={index}>{tag}</li>
+        ))}
+      </ul>
+    </>
+  )}
 
-  <div className="title-details-container">
-  {/* Titre du logement */}
-  <h2>{logement.title}</h2>
+            {/* Évaluation */}
+            <div className="rating">
+              {Array.from(Array(5), (e, i) => (
+                <FontAwesomeIcon key={i} icon={faStar} className={i < logement.rating ? '' : 'inactive'} />
+              ))}
+            </div>
+          </div>
+        </div>
 
-  {/* Détails du propriétaire */}
-  <div className="owner-details">
-    <span>{logement.host.name}</span>
-    <img src={logement.host.picture} alt="Owner" />
-  </div>
-  </div>
+        {/* Information MOBILE Logement */}
+        <div className="logement-mobile">
+          {/* Titre du logement */}
+          <h2>{logement.title}</h2>
 
+          {/* Emplacement du logement */}
+          <div className="location">{logement.location}</div>
 
-  {/* Emplacement du logement */}
-  <div className="location">{logement.location}</div>
+          {/* Informations supplémentaires */}
+          <ul className="tag-mobile">
+            {logement.tags.map((tag, index) => (
+              <li key={index}>{tag}</li>
+            ))}
+          </ul>
 
-  {/* Informations supplémentaires */}
-  <div className="information">
-    {/* Tags */}
-    <ul>
-      {logement.tags.map((tag, index) => (
-        <li key={index}>{tag}</li>
-      ))}
-    </ul>
+          <div className="rate-name-mobile">
+            {/* Évaluation */}
+            <div className="rating">
+              {Array.from(Array(5), (e, i) => (
+                <FontAwesomeIcon
+                  key={i}
+                  icon={faStar}
+                  className={i < logement.rating ? '' : 'inactive'}
+                />
+              ))}
+            </div>
 
-    {/* Évaluation */}
-    <div className="rating">
-  {Array.from(Array(5), (e, i) => (
-    <FontAwesomeIcon key={i} icon={faStar} className={i < logement.rating ? '' : 'inactive'} />
-  ))}
-      </div>
+            {/* Détails du propriétaire */}
+            <div className="owner-details">
+              <span>{logement.host.name}</span>
+              <img src={logement.host.picture} alt="Owner" />
+            </div>
+          </div>
+        </div>
 
-  </div>
+        <div className="custom-collapses-container">
+          {/* Description du logement */}
+          <div className="custom-collapse">
+            <Collapse title="Description" content={logement.description} />
+          </div>
 
-  </div>
-
-  { /* Information MOBILE Logement */}
-
-  <div className='logement-mobile'>
-  {/* Titre du logement */}
-  <h2>{logement.title}</h2>
-
- {/* Emplacement du logement */}
- <div className="location">{logement.location}</div>
- 
-{/* Informations supplémentaires */}
-
-    {/* Tags */}
-
-    <ul className="tag-mobile">
-  {logement.tags.map((tag, index) => (
-    <li key={index}>{tag}</li>
-  ))}
-</ul>
-
-
-
-  
-
-<div className="rate-name-mobile">
-  {/* Évaluation */}
-  <div className="rating">
-    {Array.from(Array(5), (e, i) => (
-      <FontAwesomeIcon
-        key={i}
-        icon={faStar}
-        className={i < logement.rating ? '' : 'inactive'}
-      />
-    ))}
-  </div>
-
-  {/* Détails du propriétaire */}
-  <div className="owner-details">
-    <span>{logement.host.name}</span>
-    <img src={logement.host.picture} alt="Owner" />
-  </div>
-</div>
-
-
-</div>
-
-
-
-
-  
-
-  <div className="custom-collapses-container">
-  {/* Description du logement */}
-  <div className="custom-collapse">
-    <Collapse title="Description" content={logement.description} />
-  </div>
-
-  {/* Équipements du logement */}
-  <div className="custom-collapse">
-    <Collapse
-      title="Équipements"
-      content={
-        <ul>
-          {logement.equipments.map((equipment, index) => (
-            <li key={index}>{equipment}</li>
-          ))}
-        </ul>
-      }
-    />
-  </div>
-</div>
-
-</main>
-
+          {/* Équipements du logement */}
+          <div className="custom-collapse">
+            <Collapse
+              title="Équipements"
+              content={
+                <ul>
+                  {logement.equipments.map((equipment, index) => (
+                    <li key={index}>{equipment}</li>
+                  ))}
+                </ul>
+              }
+            />
+          </div>
+        </div>
+      </main>
 
       <Footer />
-     
-      </div>
+    </div>
   );
 }
 
