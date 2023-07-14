@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Accueil from './components/Accueil';
 import About from './components/About';
-import NotFoundPage from './components/NotFound'; // Renommer le composant importé
+import NotFoundPage from './components/NotFound';
 import Logement from './components/Logement';
 import './style/Global.scss';
 
