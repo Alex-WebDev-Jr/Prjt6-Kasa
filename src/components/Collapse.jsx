@@ -21,8 +21,8 @@ function Collapse({ title, content }) {
         </div>
       </div>
       {isOpen && (
-        <div className="collapse-content">
-          {content}
+        <div className="collapse-content" >
+          <p className="animated-text">{content}</p>
         </div>
       )}
     </div>
