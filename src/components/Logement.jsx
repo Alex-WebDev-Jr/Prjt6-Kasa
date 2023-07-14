@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Collapse from './Collapse';
@@ -19,7 +19,7 @@ function Logement() {
   const [currentImage, setCurrentImage] = useState(0);
 
   if (!logement) {
-    return <div>Nous ne trouvons pas votre logement</div>;
+    return <Navigate to="/not-found" replace />;
   }
 
   const previousImage = () => {
