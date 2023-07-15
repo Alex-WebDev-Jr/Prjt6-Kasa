@@ -1,9 +1,9 @@
 // About.jsx
 
-import Header from './Header';
-import Banner from './Banner';
-import Collapse from './Collapse';
-import Footer from './Footer';
+import Header from '../components/Header';
+import Banner from '../components/Banner';
+import Collapse from '../components/Collapse';
+import Footer from '../components/Footer';
 import '../style/About.scss';
 import aboutImage from '../assets/about.png';
 

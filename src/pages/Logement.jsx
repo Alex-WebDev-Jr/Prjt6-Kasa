@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
-import Collapse from './Collapse';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Collapse from '../components/Collapse';
 import logementsData from '../data/logements.json';
 
 import nextIcon from '../assets/next.svg';

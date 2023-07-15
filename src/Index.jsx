@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Accueil from './components/Accueil';
-import About from './components/About';
-import NotFoundPage from './components/NotFound';
-import Logement from './components/Logement';
+import Accueil from './pages/Accueil';
+import About from './pages/About';
+import NotFoundPage from './pages/NotFound';
+import Logement from './pages/Logement';
 import './style/Global.scss';
 
 function NotFound() {

@@ -1,10 +1,10 @@
 // Accueil.jsx
 
 import React from 'react';
-import Header from './Header';
-import Banner from './Banner';
-import Gallery from './Gallery';
-import Footer from './Footer';
+import Header from '../components/Header';
+import Banner from '../components/Banner';
+import Gallery from '../components/Gallery';
+import Footer from '../components/Footer';
 import logementData from '../data/logements.json';
 import '../style/Accueil.scss';
 import acceuilImage from '../assets/accueil.png';
